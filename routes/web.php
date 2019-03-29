@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+
+Route::name('home')->get('/', 'HomeController@index');
+
+Route::resource('dados-pessoal', 'DadosPessoalController');
+Route::resource('dados-sindical', 'DadosSindicalController');
+Route::resource('termos-de-autorizacao', 'TermosDeAutorizacaoController');
+Route::resource('cadastrar', 'CadastrarController');
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
