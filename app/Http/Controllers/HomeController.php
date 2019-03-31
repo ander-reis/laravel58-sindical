@@ -29,8 +29,7 @@ class HomeController extends Controller
     public function createDadosPessoal(Request $request)
     {
         //$cpf = $request->session()->get('cpf');
-
-        return view('sindical.dados-pessoal', compact('cpf'));
+        return view('sindical.dados-pessoal');
     }
 
     /**
@@ -71,7 +70,6 @@ class HomeController extends Controller
      */
     public function createDadosSindical(Request $request)
     {
-        //$cpf = $request->session()->get('cpf');
         return view('sindical.dados-sindical');
     }
 
@@ -102,7 +100,6 @@ class HomeController extends Controller
 //            $product->fill($validatedData);
 //            $request->session()->put('product', $product);
 //        }
-
 
         return redirect('/dados-sindical');
     }
