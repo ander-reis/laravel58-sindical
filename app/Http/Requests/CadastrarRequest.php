@@ -24,9 +24,7 @@ class CadastrarRequest extends FormRequest
     public function rules()
     {
         return [
-            'cpf' => 'required',
-            'name' => 'required',
-            'email' => 'required',
+            'checkbox' => 'required',
         ];
     }
 }

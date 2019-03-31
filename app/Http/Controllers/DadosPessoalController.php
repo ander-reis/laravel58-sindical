@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CadastrarRequest;
+use App\Http\Requests\DadosSindicalRequest;
 use App\Http\Requests\HomeRequest;
 use Illuminate\Http\Request;
 use Validator;
@@ -25,7 +27,7 @@ class DadosPessoalController extends Controller
      */
     public function create()
     {
-
+        return view('sindical.dados-pessoal');
     }
 
     /**
@@ -36,16 +38,7 @@ class DadosPessoalController extends Controller
      */
     public function store(HomeRequest $request)
     {
-//        dd($request);
         $cpf = $request->cpf;
-
-        $validator = Validator::make($request->all(), [
-            'email' => 'required',
-            'name' => 'required',
-            'cpf' => 'required'
-        ]);
-
-//        dd($validator);
         return view('sindical.dados-pessoal', compact('cpf'));
     }
 

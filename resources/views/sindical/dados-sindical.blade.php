@@ -4,7 +4,7 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-12">
-                <form class="needs-validation" novalidate action="{{ route('termos-de-autorizacao.store') }}" method="POST">
+                <form class="needs-validation" novalidate action="{{ route('dados-termos.post') }}" method="POST">
                     @csrf
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
@@ -29,6 +29,15 @@
                             </div>
                         </div>
                     </div>
+
+                    @if($errors->any())
+                        <ul class="alert alert-danger">
+                            @foreach($errors->all() as $error)
+                                <li class="list-group">{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+
                     <button type="submit" class="btn btn-primary">Próximo</button>
                 </form>
             </div>

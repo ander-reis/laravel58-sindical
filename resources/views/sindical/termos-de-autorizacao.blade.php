@@ -4,7 +4,7 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('cadastrar.create') }}" method="get">
+                <form action="{{ route('cadastrar.store') }}" method="POST">
                     @csrf
                     <h3 class="termos-title text-center">AUTORIZAÇÃO DE DESCONTO DA CONTRIBUIÇÃO SINDICAL</h3>
                     <div class="mb-5 text-justify">
@@ -22,20 +22,20 @@
                         <p>São Paulo,.</p>
                     </div>
 
-                    {{--<div class="custom-control custom-checkbox mb-3">--}}
-                        {{--<input type="checkbox" class="custom-control-input" id="invalidCheck" required>--}}
-                        {{--<label class="custom-control-label" for="invalidCheck">Aceito os termos.</label>--}}
-                        {{--<div class="invalid-feedback">É obrigatório aceitar os termos.</div>--}}
-                    {{--</div>--}}
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="checkbox">
+                        <label class="custom-control-label" for="checkbox">Aceito os termos.</label>
+                        <div class="invalid-feedback">É obrigatório aceitar os termos.</div>
+                    </div>
 
 
-                    <input type="text" class="form-control" id="cpf" name="cpf" value="{{$session['cpf']}}">
-                    <input type="text" class="form-control" id="name" name="name" value="{{ $session['name'] }}">
-                    <input type="text" class="form-control" id="email" name="email" value="{{ $session['email'] }}">
-
-                    <input type="text" class="form-control" id="ds_escola" name="ds_escola" value="{{ $model['ds_escola'] }}">
-                    <input type="text" class="form-control" id="vl_salario" name="vl_salario" value="{{ $model['vl_salario'] }}">
-
+                    {{--<input type="text" class="form-control" id="cpf" name="cpf" value="{{$session['cpf']}}">--}}
+                    {{--<input type="text" class="form-control" id="name" name="name" value="{{ $session['name'] }}">--}}
+                    {{--<input type="text" class="form-control" id="email" name="email" value="{{ $session['email'] }}">--}}
+{{----}}
+                    {{--<input type="text" class="form-control" id="ds_escola" name="ds_escola" value="{{ $model['ds_escola'] }}">--}}
+                    {{--<input type="text" class="form-control" id="vl_salario" name="vl_salario" value="{{ $model['vl_salario'] }}">--}}
+{{----}}
                     @if($errors->any())
                         <ul class="alert alert-danger">
                             @foreach($errors->all() as $error)

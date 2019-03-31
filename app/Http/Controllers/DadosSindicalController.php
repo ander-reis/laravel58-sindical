@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DadosSindicalRequest;
 use App\Http\Requests\HomeRequest;
+use Validator;
 use Illuminate\Http\Request;
 
 class DadosSindicalController extends Controller
@@ -25,7 +26,7 @@ class DadosSindicalController extends Controller
      */
     public function create()
     {
-        return view('home.dados-pessoal');
+        return view('sindical.dados-sindical');
     }
 
     /**
@@ -36,6 +37,15 @@ class DadosSindicalController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+            'name' => 'required',
+        ]);
+
+        if($validator->fails()){
+
+        }
+
         //$request->session()->flash('user', $request->all());
         session()->put('user', $request->all());
 
