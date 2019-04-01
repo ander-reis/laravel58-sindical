@@ -6,3 +6,6 @@
  */
 
 require('./bootstrap');
+// require('./formValidator');
+// require('./framework/bootstrap/bootstrap');
+// require('./script');

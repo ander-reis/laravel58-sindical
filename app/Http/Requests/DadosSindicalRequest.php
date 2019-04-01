@@ -24,8 +24,8 @@ class DadosSindicalRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required'
+            'ds_escola' => 'required',
+            'vl_salario' => 'required'
         ];
     }
 }

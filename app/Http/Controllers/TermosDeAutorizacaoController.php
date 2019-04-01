@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class TermosDeAutorizacaoController extends Controller
 {
@@ -34,10 +35,19 @@ class TermosDeAutorizacaoController extends Controller
      */
     public function store(Request $request)
     {
-        $model = $request->all();
-        $session = session('user');
+        $validator = Validator::make($request->all(), [
+            'ds_escola' => 'required',
+            'vl_salario' => 'required',
+        ]);
+
+        if($validator->fails()){
+            dd('falhou');
+        }
+
+        //$request->session()->flash('user', $request->all());
+
 //        dd($session);
-        return view('sindical.termos-de-autorizacao', compact('session', 'model'));
+        return view('sindical.termos-de-autorizacao');
     }
 
     /**
